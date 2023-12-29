@@ -78,6 +78,9 @@ git apply "${SCRIPT_ROOT}/rest_client_patch.diff"
 # once we upgrade to a version of swagger-codegen that includes it (version>= 6.6.0).
 # See https://github.com/OpenAPITools/openapi-generator/pull/15283
 git apply "${SCRIPT_ROOT}/rest_sni_patch.diff"
+# ....expanding on a terrible hack let's also patch the ApiClient
+# to solve https://github.com/kubernetes-client/python/issues/1867
+git apply "${SCRIPT_ROOT}/api_client_patch.diff"
 
 echo ">>> generating docs..."
 pushd "${DOC_ROOT}" > /dev/null
